@@ -1,0 +1,55 @@
+{
+  "name": "pv-ui",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cross-env APP_ENVIRONMENT=development webpack --progress",
+    "build:prod": "cross-env APP_ENVIRONMENT=production webpack -p --progress",
+    "postinstall": "typings install",
+    "serve": "cross-env APP_ENVIRONMENT=development webpack-dev-server --inline --progress",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings"
+  },
+  "dependencies": {
+    "@angular/common": "2.1.2",
+    "@angular/compiler": "2.1.2",
+    "@angular/core": "2.1.2",
+    "@angular/forms": "2.1.2",
+    "@angular/http": "2.1.2",
+    "@angular/platform-browser": "2.1.2",
+    "@angular/platform-browser-dynamic": "2.1.2",
+    "@angular/router": "3.1.2",
+    "@angular/upgrade": "2.1.2",
+    "angular-in-memory-web-api": "0.1.1",
+    "core-js": "2.4.1",
+    "reflect-metadata": "0.1.8",
+    "rxjs": "5.0.0-beta.12",
+    "systemjs": "0.19.39",
+    "zone.js": "0.6.25",
+
+    "bootstrap": "^4.0.0-alpha.5",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.15",
+    "angular2-jwt": "0.1.25",
+    "ng2-idle": "1.0.0-alpha.17",
+    "ng2-file-upload": "1.1.4-2",
+    "font-awesome": "^4.6.3",
+    "jquery": "3.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "3.0.0",
+    "angular2-template-loader": "0.5.0",
+    "cross-env": "3.0.0",
+    "html-webpack-plugin": "2.22.0",
+    "raw-loader": "0.5.1",
+    "ts-loader": "0.8.2",
+    "typescript": "2.0.3",
+    "typings": "1.4.0",
+    "webpack": "1.13.2",
+    "webpack-dev-server": "1.16.1",
+    "file-loader": "0.9.0",
+    "url-loader": "0.5.7",
+    "style-loader": "0.13.1",
+    "css-loader": "0.25.0",
+    "webpack-version-file-plugin": "0.2.2"
+  }
+}
