@@ -5,9 +5,9 @@ using Owin;
 using Microsoft.Owin.Security.OAuth;
 using System.Web.Http;
 
-[assembly: OwinStartup(typeof(PV.Startup))]
+[assembly: OwinStartup(typeof(pv.Startup))]
 
-namespace PV
+namespace pv
 {
     public class Startup
     {

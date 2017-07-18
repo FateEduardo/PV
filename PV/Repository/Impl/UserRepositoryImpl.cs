@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data.Entity;
-using PV.Models.model;
-using PV.Repository.Abstract.Repository;
+using pv.Models.model;
+using pv.Repository.Abstract.Repository;
 
-namespace PV.Repository.Impl
+namespace pv.Repository.Impl
 {
     public class UserRepositoryImpl : CRUDRepository<UserEntity>, IUserRepository
     {

@@ -45,7 +45,7 @@ module.exports = {
         inline: true,
         port: 8484,
         historyApiFallback: {
-            index: '/ptt-app/'
+            index: '/pv-app/'
         }
     },
     plugins: [

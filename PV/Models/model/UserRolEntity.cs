@@ -1,4 +1,4 @@
-namespace PV.Models.model
+namespace pv.Models.model
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

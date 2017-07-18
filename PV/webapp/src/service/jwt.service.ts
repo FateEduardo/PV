@@ -6,7 +6,7 @@ import {DEFAULT_INTERRUPTSOURCES} from "ng2-idle/core";
 import {Router} from "@angular/router";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {IdleExt} from "../util/idle-ext";
-import {ModalAlertComponent} from "../component/util/modal-alert.component";
+//import {ModalAlertComponent} from "../component/util/modal-alert.component";
 
 /**
  * Created by Fernando Martinez on 26/10/16.
@@ -80,10 +80,10 @@ export class JwtService {
         // a warning dialog onIdleStart, or redirecting to logout page onTImeout, etc.
         this.idle.onIdleStart.subscribe(() => {
             console.log('IdleStart');
-            const modalRef =  this.modalService.open(ModalAlertComponent, {backdrop: 'static', keyboard: true, size:"sm" })
+           /* const modalRef =  this.modalService.open(ModalAlertComponent, {backdrop: 'static', keyboard: true, size:"sm" })
             modalRef.componentInstance.alertMessage = "Your session is about to expire."
             modalRef.componentInstance.title = "Warning"
-            modalRef.componentInstance.buttonLabel = "Keep me logged in"
+            modalRef.componentInstance.buttonLabel = "Keep me logged in"*/
         });
         this.idle.onIdleEnd.subscribe(() => {
             console.log('IdleEnd');
@@ -205,7 +205,7 @@ export class JwtService {
     private refreshToken() { //cambiar
         //setting JWT headers this is a temporary workaround until jwt-angular2 issue with nested
         // observables/promises and http constructor is fixed
-        let headers = new Headers({'Accept': '*/*'});
+        let headers = new Headers();
         headers.append('content-type', "application/x-www-form-urlencoded");
         headers.append('X-AUTH-TOKEN', this.getToken());
 

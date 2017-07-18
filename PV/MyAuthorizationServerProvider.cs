@@ -2,7 +2,7 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace PV
+namespace pv
 {
     public class MyAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {

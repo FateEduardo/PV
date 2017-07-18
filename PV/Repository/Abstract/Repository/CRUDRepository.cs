@@ -5,7 +5,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 
-namespace PV.Repository.Abstract.Repository
+namespace pv.Repository.Abstract.Repository
 {
     public abstract class CRUDRepository<Entity> : CPARepository<Entity> where Entity : class
     {

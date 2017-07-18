@@ -20,7 +20,7 @@ export class JwtGuard implements CanActivate {
             this.jwtService.watchIdle()
             return true;
         } else {
-            this.router.navigate(['route/login']);
+            this.router.navigate(['pv/login']);
             return false;
         }
     }

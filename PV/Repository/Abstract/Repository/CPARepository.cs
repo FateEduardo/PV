@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PV.Repository.Abstract.Repository
+namespace pv.Repository.Abstract.Repository
 {
     interface CPARepository<Entity> where Entity : class
     

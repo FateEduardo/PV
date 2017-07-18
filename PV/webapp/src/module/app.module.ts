@@ -8,7 +8,14 @@ import {SimpleExpiry} from "ng2-idle/simpleexpiry";
 import {FileSelectDirective} from 'ng2-file-upload';
 import { NgbTypeaheadModule } from "@ng-bootstrap/ng-bootstrap";
 import {AppComponent} from "../component/src/app.component";
+import {LoginComponent} from "../component/src/login.component";
+import {HomeComponent} from "../component/src/home.component";
 import {routing} from "./app.routes";
+import {JwtService} from "../service/jwt.service"
+import {JwtGuard} from "../service/guard/jwt-guard.service"
+import {PreAuthGuard} from "../service/guard/pre-auth-guard.service"
+import {IdleExt} from "../util/idle-ext";
+import {ApiService } from  "../service/api.service"
 
 @NgModule({
     imports: [
@@ -21,7 +28,9 @@ import {routing} from "./app.routes";
         routing
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        LoginComponent,
+        HomeComponent
     ],
     entryComponents: [
      
@@ -29,14 +38,13 @@ import {routing} from "./app.routes";
     bootstrap: [AppComponent],
 
     providers: [
-        //PTT constants
-        { provide: 'API_HOST', useValue: app.environment === 'development' ? 'http://localhost:8282/ptt-app/' : '/ptt-app/' },
+        //pv constants
+        { provide: 'API_HOST', useValue: app.environment === 'development' ? 'http://localhost:55679/pv/' : '/pv-app/' },
         //Project Stages constants
 		
-    //PTT services
-        ApiService, JwtHelper, JwtService, ValidationService, FileAuditService, ClientPaginationService,
-        FormatService, AlertService, DownloadService, PageableRequestHandler, CommonsService,
-    //PTT guards
+    //pv services
+        ApiService, JwtHelper, JwtService,
+    //pv guards
         PreAuthGuard, JwtGuard,
     //ng2-idle dependencies
         IdleExt, SimpleExpiry,

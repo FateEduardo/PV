@@ -22,15 +22,15 @@
     "@angular/upgrade": "2.1.2",
     "angular-in-memory-web-api": "0.1.1",
     "core-js": "2.4.1",
-    "reflect-metadata": "0.1.8",
+    "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.12",
     "systemjs": "0.19.39",
     "zone.js": "0.6.25",
 
     "bootstrap": "^4.0.0-alpha.5",
-    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.15",
+    "@ng-bootstrap/ng-bootstrap": "1.0.0-alpha.13",
     "angular2-jwt": "0.1.25",
-    "ng2-idle": "1.0.0-alpha.17",
+    "ng2-idle": "1.0.0-alpha.10",
     "ng2-file-upload": "1.1.4-2",
     "font-awesome": "^4.6.3",
     "jquery": "3.1.1"

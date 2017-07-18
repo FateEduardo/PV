@@ -1,7 +1,7 @@
 {
 	"version" : {
-		"name":      "pv-app-ui",
-		"buildDate": "Mon Mar 13 2017 17:42:56 GMT-0600 (Hora estándar central (México))",
+		"name":      "pv-ui",
+		"buildDate": "Sun Jul 16 2017 22:57:33 GMT-0700 (Pacific Daylight Time)",
 		"version":   "1.0.0"
 	}
 }

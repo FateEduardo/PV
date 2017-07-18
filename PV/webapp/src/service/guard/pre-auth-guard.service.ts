@@ -1,6 +1,6 @@
 import {CanActivate, Router} from "@angular/router";
 import {Injectable} from "@angular/core";
-import {HomeComponent} from "../../component/src/home.componet";
+import {HomeComponent} from "../../component/src/home.component";
 import {JwtService} from "../jwt.service";
 import {ApiService} from "../api.service";
 
@@ -20,7 +20,8 @@ export class PreAuthGuard implements CanActivate {
         return this.apiService.isPreAuthenticated().then((res) => {
             console.info("user is pre-authenticated",res)
             this.jwtService.saveToken(res);
-            this.router.navigate(['/route/projects'], HomeComponent);
+            alert("entro")
+          //  this.router.navigate(['/pv'], HomeComponent);
             return false;
         }).catch((ex) => {
             //its ok to fail on development

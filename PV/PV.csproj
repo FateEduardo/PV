@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -209,6 +210,7 @@
     <Content Include="webapp\generated\912ec66d7572ff821749319396470bde.svg" />
     <Content Include="webapp\generated\index.html" />
     <Content Include="webapp\src\component\template\app.component.html" />
+    <Content Include="webapp\src\component\template\home.component.html" />
     <Content Include="webapp\src\index.html" />
     <Content Include="webapp\webpack.config.js" />
   </ItemGroup>
@@ -231,17 +233,25 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="webapp\src\component\src\app.component.ts" />
+    <TypeScriptCompile Include="webapp\src\component\src\home.component.ts" />
+    <TypeScriptCompile Include="webapp\src\component\src\login.component.ts" />
     <TypeScriptCompile Include="webapp\src\main.ts" />
     <TypeScriptCompile Include="webapp\src\module\app.module.ts" />
     <TypeScriptCompile Include="webapp\src\module\app.routes.ts" />
+    <TypeScriptCompile Include="webapp\src\service\api.service.ts" />
     <TypeScriptCompile Include="webapp\src\service\guard\jwt-guard.service.ts" />
     <TypeScriptCompile Include="webapp\src\service\guard\pre-auth-guard.service.ts" />
     <TypeScriptCompile Include="webapp\src\service\jwt.service.ts" />
     <TypeScriptCompile Include="webapp\src\service\login.service.ts" />
     <TypeScriptCompile Include="webapp\src\typings.d.ts" />
+    <TypeScriptCompile Include="webapp\src\util\idle-ext.ts" />
+    <TypeScriptCompile Include="webapp\src\util\rxjs-operators.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="webapp\src\component\template\login.component.html" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -258,7 +268,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55679</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

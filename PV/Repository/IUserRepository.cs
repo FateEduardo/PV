@@ -1,4 +1,4 @@
-﻿namespace PV.Repository
+﻿namespace pv.Repository
 {
     interface IUserRepository
     {
