@@ -15,7 +15,8 @@ import {IdleExt} from "../util/idle-ext";
 @Injectable()
 export class JwtService {
 
-    private tokenId:string = "id_token";
+    private tokenId: string = "id_token";
+    private tokenRefresh: string = "refresh";
     private refreshSubscription: any;
     //give some seconds to perform the request to the server before token expires
     private serverResponseDelay:number = 2000;
@@ -43,6 +44,15 @@ export class JwtService {
         }
         return false;
     }
+
+    public getRefreshToken() {
+        return sessionStorage.getItem(this.tokenRefresh);
+    }
+
+    public setRefreshToken(token: string) {
+        return sessionStorage.setItem(this.tokenRefresh, token);
+    }
+
 
     /**
      * clears subscriptions and redirects user to login
@@ -104,7 +114,7 @@ export class JwtService {
      * delay and subscribe to refresh token for getting the new JWT jus before it expires
      */
     public scheduleRefresh() {
-
+        alert("paso")
         console.log("scheduleRefresh");
 
         let source = this.authHttp.tokenStream.flatMap(
@@ -131,7 +141,7 @@ export class JwtService {
      * run on startup to begin to handle user session
      */
     public startupTokenRefresh() {
-
+        alert("paso")
         console.log("startupTokenRefresh");
         // If the user is authenticated, use the token stream
         // provided by angular2-jwt and flatMap the token
@@ -206,12 +216,21 @@ export class JwtService {
         //setting JWT headers this is a temporary workaround until jwt-angular2 issue with nested
         // observables/promises and http constructor is fixed
         let headers = new Headers();
+        let body = {  'grant_type': 'refresh_token' };
         headers.append('content-type', "application/x-www-form-urlencoded");
-        headers.append('X-AUTH-TOKEN', this.getToken());
+        headers.append('refresh_token', this.getRefreshToken());
 
         let options = new RequestOptions({headers: headers});
         return this.http
-            .get(this.apiHost + 'refreshToken', options)
+            .post(this.apiHost + 'token', this.undeCodeData(body), options)
             .map(res => res.text()).toPromise()
+    }
+
+    private undeCodeData(user: any) {
+        var p = [];
+        for (var key in user) {
+            p.push(key + '=' + encodeURIComponent(user[key]));
+        }
+        return p.join('&');
     }
 }

@@ -22,7 +22,7 @@ export class ApiService {
      * @returns {Promise<Response>}
      */
     public isPreAuthenticated() {
-        return this.http.get(this.apiHost + 'preAuth').map(res => res.text()).toPromise();
+        return this.http.get(this.apiHost + 'token').map(res => res.text()).toPromise();
     }
 
 }

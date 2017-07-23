@@ -16,11 +16,13 @@ export class JwtGuard implements CanActivate {
      */
     canActivate() {
         if(this.jwtService.isValidToken()) {
-            this.jwtService.startupTokenRefresh()
-            this.jwtService.watchIdle()
+            this.jwtService.startupTokenRefresh();
+            this.jwtService.watchIdle();
+            this.router.navigate(['pv/otro']);
             return true;
         } else {
-            this.router.navigate(['pv/login']);
+            this.router.navigate(['pv/otro']);
+            alert("no paso")
             return false;
         }
     }

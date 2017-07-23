@@ -13,7 +13,7 @@ import {HomeComponent} from "../component/src/home.component";
 @Injectable()
 export class LoginService {
 
-    private token:String;
+ 
 
     constructor (private http: Http, private router : Router, @Inject('API_HOST') private apiHost: string,
                  private jwtService:JwtService) {
@@ -23,19 +23,20 @@ export class LoginService {
 
 
     authenticateUser(user:any){
-        let loginUrl = this.apiHost + 'auth';
+        let loginUrl = this.apiHost + 'token';
 
         let body = { 'username': user.userName, 'password': user.password, 'grant_type': 'password' };
 
         let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded'});
         let options = new RequestOptions({ headers: headers });
         return this.http.post(loginUrl, this.undeCodeData(body), options)
-           .map(response => response.text())
+           .map(response => response.json())
            .subscribe(
-               token => {
-                   console.debug('token: ' + token);
-                   this.jwtService.saveToken(token);
-                   console.log("logged")
+            token => {
+                this.jwtService.saveToken(token.access_token);
+                this.jwtService.setRefreshToken(token.refresh_token);
+                console.log(this.jwtService.getToken());
+                console.log(this.jwtService.getRefreshToken());
                },
                this.handleError,
                () => console.log('Authentication Complete')

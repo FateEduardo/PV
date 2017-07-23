@@ -5,6 +5,7 @@ using Owin;
 using Microsoft.Owin.Security.OAuth;
 using System.Web.Http;
 
+
 [assembly: OwinStartup(typeof(pv.Startup))]
 
 namespace pv
@@ -21,8 +22,9 @@ namespace pv
             OAuthAuthorizationServerOptions options = new OAuthAuthorizationServerOptions
             {
                 AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/token"),
+                TokenEndpointPath = new PathString("/pv/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(5),
+                RefreshTokenProvider = new MyAuthorizationServerProviderRefresh(),
                 Provider = myProvider
             };
             app.UseOAuthAuthorizationServer(options);

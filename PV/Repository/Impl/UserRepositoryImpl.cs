@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using pv.Models.model;
 using pv.Repository.Abstract.Repository;
 
@@ -13,6 +12,7 @@ namespace pv.Repository.Impl
 
         public override int count()
         {
+
             return 0;
         }
     }

@@ -22,7 +22,7 @@ export class LoginComponent {
 
     user: User = new User;
 
-    login() {
+    public login() {
   	    console.log('authenticating: ' + JSON.stringify(this.user));
 
         this.loginService.authenticateUser(this.user);

@@ -14,15 +14,19 @@ namespace pv.Models.model
 
         [Required]
         [StringLength(50)]
+        [Column("USER_NAME", TypeName = "nvarchar")]
         public string userName { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Column("PASSWORD", TypeName = "nvarchar")]
         public string password { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("ROL", TypeName = "bigint")]
         public long rol { get; set; }
 
+        [Column("ROL")]
         public virtual UserRolEntity userRole { get; set; }
     }
 }
