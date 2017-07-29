@@ -10,7 +10,9 @@ namespace pv.Models.model
     public partial class UserEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public long id { get; set; }
+
 
         [Required]
         [StringLength(50)]
@@ -24,6 +26,7 @@ namespace pv.Models.model
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ROL", TypeName = "bigint")]
+        [ForeignKey("ROL")]
         public long rol { get; set; }
 
         [Column("ROL")]
