@@ -169,6 +169,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\model\AuditoryEntity.cs" />
     <Compile Include="Models\model\Context.cs" />
     <Compile Include="Models\model\UserEntity.cs" />
     <Compile Include="Models\model\UserRolEntity.cs" />
@@ -198,8 +199,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="webapp\generated\912ec66d7572ff821749319396470bde.svg" />
     <Content Include="webapp\generated\index.html" />
+    <Content Include="webapp\src\component\src\producto-list.component.ts" />
     <Content Include="webapp\src\component\template\app.component.html" />
     <Content Include="webapp\src\component\template\home.component.html" />
+    <Content Include="webapp\src\component\template\product-list.component.html" />
     <Content Include="webapp\src\index.html" />
     <Content Include="webapp\webpack.config.js" />
   </ItemGroup>

@@ -1,9 +1,9 @@
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
 namespace pv.Models.model
 {
-    using System;
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
+
 
     public partial class Context : DbContext
     {
@@ -17,10 +17,13 @@ namespace pv.Models.model
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+          
+            
             modelBuilder.Entity<UserRolEntity>()
-                .HasMany(e => e.users)
-                .WithRequired(e => e.userRole)
-                .HasForeignKey(e => e.rol)
+                .HasMany(e => e.Users)
+                .WithRequired(e => e.UserRole)
+                .HasForeignKey(e => e.Rol)
                 .WillCascadeOnDelete(false);
         }
     }
