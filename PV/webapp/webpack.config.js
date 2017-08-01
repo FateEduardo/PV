@@ -38,7 +38,8 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.ts', '.html', '.css'],
         alias: {
-            bootstrap_css: __dirname + '/node_modules/bootstrap/dist/css/bootstrap.min.css'
+            bootstrap_css: __dirname + '/node_modules/bootstrap/dist/css/bootstrap.min.css',
+            my_css: __dirname + '/src/asset/css/pv.css'
         }
     },
     devServer: {

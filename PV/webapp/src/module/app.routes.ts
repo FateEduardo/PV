@@ -3,7 +3,7 @@ import {LoginComponent} from "../component/src/login.component";
 import {PreAuthGuard} from "../service/guard/pre-auth-guard.service";
 import {HomeComponent} from "../component/src/home.component";
 import {ProductListComponent} from "../component/src/producto-list.component";
-import {JwtGuard} from "../service/guard/jwt-guard.service";
+
 
 
 /**
