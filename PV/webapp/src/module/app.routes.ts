@@ -2,6 +2,7 @@ import {Routes, RouterModule} from "@angular/router";
 import {LoginComponent} from "../component/src/login.component";
 import {PreAuthGuard} from "../service/guard/pre-auth-guard.service";
 import {HomeComponent} from "../component/src/home.component";
+import {ProductListComponent} from "../component/src/producto-list.component";
 import {JwtGuard} from "../service/guard/jwt-guard.service";
 
 
@@ -12,7 +13,7 @@ import {JwtGuard} from "../service/guard/jwt-guard.service";
 const routes: Routes = [
     // map '/home' to the home screen
     {
-        path: 'login',
+        path: 'pv/login',
         component: LoginComponent,
         canActivate: [
             PreAuthGuard
@@ -22,23 +23,20 @@ const routes: Routes = [
         path: 'pv',
         component: HomeComponent,
         children: [
-            { },
-            { }
+            {path:'ticket', component: ProductListComponent}
         ],
-        canActivate: [
-            JwtGuard
-        ]
+      
     },
 
     {
-        path: 'token',
-        redirectTo: 'login',
+        path: 'logout',
+        redirectTo: 'pv/login',
         pathMatch: 'full'
     },
     // map '/' to '/login' as our default route
     {
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'pv/login',
         pathMatch: 'full'
     }
 ];

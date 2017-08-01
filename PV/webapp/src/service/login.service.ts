@@ -1,12 +1,11 @@
-import {Injectable, Inject} from "@angular/core";
-import {Http, Response, Headers, RequestOptions} from "@angular/http";
+import {Inject, Injectable} from "@angular/core";
+import {Headers, Http, RequestOptions} from "@angular/http";
 import {Observable} from "rxjs/Observable";
- 
+
 import {Router} from "@angular/router";
 import {JwtService} from "./jwt.service";
-import {User} from "../component/src/login.component";
 import {HomeComponent} from "../component/src/home.component";
-
+import {ProductListComponent} from "../component/src/producto-list.component";
 /**
  * Created by chaas003 on 10/5/16.
  */
@@ -37,6 +36,7 @@ export class LoginService {
                 this.jwtService.setRefreshToken(token.refresh_token);
                 console.log(this.jwtService.getToken());
                 console.log(this.jwtService.getRefreshToken());
+                this.router.navigate(['pv/ticket'], ProductListComponent);
                },
                this.handleError,
                () => console.log('Authentication Complete')

@@ -4,6 +4,7 @@ using Microsoft.Owin;
 using Owin;
 using Microsoft.Owin.Security.OAuth;
 using System.Web.Http;
+using PV;
 
 
 [assembly: OwinStartup(typeof(pv.Startup))]
@@ -25,10 +26,10 @@ namespace pv
                 TokenEndpointPath = new PathString("/pv/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(5),
                 RefreshTokenProvider = new MyAuthorizationServerProviderRefresh(),
+                AccessTokenFormat = new CustomJwtFormat("Jugui Toño Systema"),
                 Provider = myProvider
             };
-            app.UseOAuthAuthorizationServer(options);
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+              app.UseOAuthAuthorizationServer(options);
 
             HttpConfiguration config = new HttpConfiguration();
             WebApiConfig.Register(config);

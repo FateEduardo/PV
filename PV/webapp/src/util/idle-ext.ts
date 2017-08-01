@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Idle, SimpleExpiry} from "ng2-idle/core";
+import {Idle, SimpleExpiry} from "@ng-idle/core";
 
 /**
  * Created by Fernando Martinez on 26/1/16.

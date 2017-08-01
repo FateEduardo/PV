@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace pv.Repository.Abstract.Repository
 {
@@ -29,7 +30,7 @@ namespace pv.Repository.Abstract.Repository
             return context.Set<Entity>().ToList<Entity>();
         }
 
-        public Entity FindById(int id)
+        public Entity FindById(int id) 
         {
             return context.Set<Entity>().Find(id);
         }

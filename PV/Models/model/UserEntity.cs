@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,15 +21,16 @@ namespace pv.Models.model
         [StringLength(20)]
         [Column("PASSWORD", TypeName = "nvarchar")]
         public string Password { get; set; }
-
+        
+        
+        public AuditoryEntity AuditoryEntity { get; set; }
+        
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ROLE", TypeName = "bigint")]
         public long Rol { get; set; }
 
         [ForeignKey("ROLE")] 
         public virtual UserRolEntity UserRole { get; set; }
-
-        public AuditoryEntity AuditoryEntity = new AuditoryEntity();
        
     }
 }

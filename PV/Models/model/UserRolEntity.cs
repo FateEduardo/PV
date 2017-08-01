@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -27,6 +28,14 @@ namespace pv.Models.model
         [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserEntity> Users { get; set; }
         
-        public AuditoryEntity AuditoryEntity = new AuditoryEntity();
+        [Required]
+        [Column("CREATE_USER", TypeName = "nvarchar")] 
+        [StringLength(20)]
+        public string CreateUser;
+
+        [Required]
+        [Column("CREATE_DATE",TypeName = "date")] 
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime CreateDate;
     }
 }
