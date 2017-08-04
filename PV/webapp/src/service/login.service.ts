@@ -33,9 +33,9 @@ export class LoginService {
            .subscribe(
             token => {
                 this.jwtService.saveToken(token.access_token);
-                this.jwtService.setRefreshToken(token.refresh_token);
-                console.log(this.jwtService.getToken());
-                console.log(this.jwtService.getRefreshToken());
+                console.log(token.access_token);
+                this.jwtService.saveRefreshToken(token.refresh_token);
+                console.log(token.refresh_token);
                 this.router.navigate(['pv/ticket'], ProductListComponent);
                },
                this.handleError,

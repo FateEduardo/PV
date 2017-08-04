@@ -1,6 +1,7 @@
 import {Routes, RouterModule} from "@angular/router";
 import {LoginComponent} from "../component/src/login.component";
 import {PreAuthGuard} from "../service/guard/pre-auth-guard.service";
+import {JwtGuard} from "../service/guard/jwt-guard.service";
 import {HomeComponent} from "../component/src/home.component";
 import {ProductListComponent} from "../component/src/producto-list.component";
 
@@ -25,6 +26,9 @@ const routes: Routes = [
         children: [
             {path:'ticket', component: ProductListComponent}
         ],
+        canActivate: [
+            JwtGuard
+        ]
       
     },
 

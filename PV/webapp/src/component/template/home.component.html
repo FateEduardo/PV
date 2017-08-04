@@ -1,11 +1,27 @@
-<nav class="navbar navbar-toggleable-md bg-inverse fixed-top">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">Jugui Toño</a>
+<header>
+    <nav class="navbar navbar-dark">
 
- 
-</nav>
+        <!-- Project -->
+        <a class="navbar-brand brand-title" routerLink="/pv/tickets" href="">Punto de Venta&nbsp;&nbsp;&nbsp;</a>
+
+
+
+        <!-- User Menu -->
+        <ul class="nav navbar-nav float-xs-right">
+            <li class="nav-item">
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-user-menu" id="dropdownMenu1" ngbDropdownToggle>
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        &nbsp;{{claims.unique_name}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <button class="dropdown-item" (click)="logout($event)">Logout</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
 
 <div id="pv_content" class="container-fluid">
     <div class="row">

@@ -11,6 +11,7 @@ import {HomeComponent} from "../component/src/home.component";
 import {ProductListComponent} from "../component/src/producto-list.component";
 import {routing} from "./app.routes";
 import {JwtService} from "../service/jwt.service";
+import {JwtGuard} from "../service/guard/jwt-guard.service";
 
 import {PreAuthGuard} from "../service/guard/pre-auth-guard.service";
 import {IdleExt} from "../util/idle-ext";
@@ -49,7 +50,7 @@ import {SimpleExpiry} from "@ng-idle/core";
     //pv services
         ApiService, JwtHelper, JwtService,
     //pv guards
-        PreAuthGuard, 
+        PreAuthGuard, JwtGuard,
     //ng2-idle dependencies
         IdleExt, SimpleExpiry,
     // Breadcrumb service

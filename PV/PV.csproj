@@ -221,6 +221,7 @@
     <Content Include="webapp\src\component\template\home.component.html" />
     <Content Include="webapp\src\component\template\product-list.component.html" />
     <Content Include="webapp\src\index.html" />
+    <Content Include="webapp\src\service\guard\jwt-guard.service.ts" />
     <Content Include="webapp\webpack.config.js" />
   </ItemGroup>
   <ItemGroup>

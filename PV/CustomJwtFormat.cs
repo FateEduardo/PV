@@ -11,6 +11,7 @@ namespace PV
     public class CustomJwtFormat:ISecureDataFormat<AuthenticationTicket>
     {
         private const string UserKey = "user";
+        private const string UserKeypas = "password";
         
         private readonly UserRepositoryImpl _userRepositoryImpl = new UserRepositoryImpl(new Context());
         
@@ -39,6 +40,7 @@ namespace PV
             }
 
             string userName = data.Properties.Dictionary.ContainsKey(UserKey) ? data.Properties.Dictionary[UserKey] : null;
+            string password = data.Properties.Dictionary.ContainsKey(UserKeypas) ? data.Properties.Dictionary[UserKey] : null;
 
             if (string.IsNullOrWhiteSpace(userName)) throw new InvalidOperationException("AuthenticationTicket.Properties does not include audience");
 
@@ -59,7 +61,7 @@ namespace PV
                     SignatureAlgorithm,
                     DigestAlgorithm);
                 
-            var token = new JwtSecurityToken(_issuer, userName, data.Identity.Claims, issued.Value.UtcDateTime, expires.Value.UtcDateTime, signingCredentials);
+            var token = new JwtSecurityToken(audience.Password, audience.Password, data.Identity.Claims, issued.Value.UtcDateTime, expires.Value.UtcDateTime, signingCredentials);
 
             var handler = new JwtSecurityTokenHandler();
 

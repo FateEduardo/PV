@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
      * Configure the Breadcrumb
      */
     public ngOnInit() {
-
+        this.claims = this.jwtService.getClaims();
     }
 
     public logout(event): void {

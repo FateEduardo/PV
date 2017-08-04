@@ -23,9 +23,11 @@ namespace pv
             OAuthAuthorizationServerOptions options = new OAuthAuthorizationServerOptions
             {
                 AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/pv/token"),
+                TokenEndpointPath = new PathString("/pv/token"),              
+                RefreshTokenFormat = new CustomJwtFormat("Jugui Toño Systema"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(5),
                 RefreshTokenProvider = new MyAuthorizationServerProviderRefresh(),
+                
                 AccessTokenFormat = new CustomJwtFormat("Jugui Toño Systema"),
                 Provider = myProvider
             };

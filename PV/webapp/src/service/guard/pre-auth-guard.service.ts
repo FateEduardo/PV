@@ -18,9 +18,8 @@ export class PreAuthGuard implements CanActivate {
     constructor(private apiService: ApiService, private router : Router,private jwtService:JwtService){}
     canActivate() : Promise<boolean> {
         return this.apiService.isPreAuthenticated().then((res) => {
-            console.info("user is pre-authenticated",res)
+            console.info("user is pre-authenticated",res);
             this.jwtService.saveToken(res);
-            alert("entro")
           //  this.router.navigate(['/pv'], HomeComponent);
             return false;
         }).catch((ex) => {
