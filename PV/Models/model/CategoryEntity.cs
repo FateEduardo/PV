@@ -5,34 +5,27 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace pv.Models.model
 {
-    [Table ("PRODUCT")]
-    public class ProductEntity
+    [Table ("CATEGORY")]
+    public class CategoryEntity
     {
+        
         [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProductEntity()
+        public CategoryEntity()
         {
-            ProductIngrendiets = new HashSet<ProductIngrendietsEntity>();
+            Product = new HashSet<ProductEntity>();
         }
         
         [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductIngrendietsEntity> ProductIngrendiets { get; set; }
+        public virtual ICollection<ProductEntity> Product { get; set; }
         
-
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
+        [Column("ID", TypeName = "bigint")]
         public long Id { get; set; }
 
         [Required]
         [StringLength(20)]
         [Column("NAME", TypeName = "nvarchar")]
         public string Name { get; set; }
-       
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("CATEGORY_ID", TypeName = "bigint")]
-        public long CategoryId { get; set; }
-        
-        [ForeignKey("CATEGORY")] 
-        public virtual CategoryEntity Category { get; set; }
         
         public AuditoryEntity AuditoryEntity { get; set; }
     }
