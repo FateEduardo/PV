@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IdentityModel.Tokens;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataHandler.Encoder;
@@ -10,7 +11,7 @@ namespace PV
 {
     public class CustomJwtFormat:ISecureDataFormat<AuthenticationTicket>
     {
-        private const string UserKey = "user";
+        private const string UserKey = "audienceId";
         private const string UserKeypas = "password";
         
         private readonly UserRepositoryImpl _userRepositoryImpl = new UserRepositoryImpl(new Context());
@@ -45,23 +46,25 @@ namespace PV
             if (string.IsNullOrWhiteSpace(userName)) throw new InvalidOperationException("AuthenticationTicket.Properties does not include audience");
 
             UserEntity audience = _userRepositoryImpl.FindByUserName(userName);
-            byte[] ret = System.Text.Encoding.Unicode.GetBytes(audience.Password + audience.UserName);
-            string symmetricKeyAsBase64 = Convert.ToBase64String(ret);
+            string symmetricKeyAsBase64 = ConfigurationManager.AppSettings["as:AudienceSecret"];
+            var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
+
+            var signingKey = new HmacSigningCredentials(keyByteArray);
        
 
             try
             {
                 
-            var  keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
+           
 
             var issued = data.Properties.IssuedUtc;
             var expires = data.Properties.ExpiresUtc;
-                var signingCredentials = new SigningCredentials(
+              /*  var signingCredentials = new SigningCredentials(
                     new InMemorySymmetricSecurityKey(keyByteArray), 
                     SignatureAlgorithm,
-                    DigestAlgorithm);
-                
-            var token = new JwtSecurityToken(audience.Password, audience.Password, data.Identity.Claims, issued.Value.UtcDateTime, expires.Value.UtcDateTime, signingCredentials);
+                    DigestAlgorithm);*/
+            string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];    
+            var token = new JwtSecurityToken(_issuer,audienceId , data.Identity.Claims, issued.Value.UtcDateTime, expires.Value.UtcDateTime, signingKey);
 
             var handler = new JwtSecurityTokenHandler();
 

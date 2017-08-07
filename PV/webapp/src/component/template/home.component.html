@@ -1,28 +1,22 @@
-<header>
-    <nav class="navbar navbar-dark">
+<nav class="navbar  fixed-top navbar-light bg-faded">
+    <div class="text-center"> 
+        <a class="navbar-brand" href="#"><h2 class="font-italic">Jugui Toño</h2></a>
+        
+        <div  ngbDropdown class="float-xs-right">
+            <button class="btn btn-outline-user-menu" id="dropdownMenu1" ngbDropdownToggle>
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                &nbsp;
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <button class="dropdown-item" (click)="logout($event)">Logout</button>
+            </div>
+        </div>
+    </div>
+    
+    
 
-        <!-- Project -->
-        <a class="navbar-brand brand-title" routerLink="/pv/tickets" href="">Punto de Venta&nbsp;&nbsp;&nbsp;</a>
-
-
-
-        <!-- User Menu -->
-        <ul class="nav navbar-nav float-xs-right">
-            <li class="nav-item">
-                <div ngbDropdown class="d-inline-block">
-                    <button class="btn btn-outline-user-menu" id="dropdownMenu1" ngbDropdownToggle>
-                        <i class="fa fa-user-circle" aria-hidden="true"></i>
-                        &nbsp;{{claims.unique_name}}
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <button class="dropdown-item" (click)="logout($event)">Logout</button>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </nav>
-</header>
-
+    
+</nav>
 <div id="pv_content" class="container-fluid">
     <div class="row">
         <div class="col-sm">
@@ -30,10 +24,9 @@
         </div>
     </div>
 </div>
-
-<footer id="pv_footer" class="col-sm-12">
+<footer id="pricing_footer" class="col-sm-12">
     <span class="float-sm-left">
-        PV 1.0.0
+        Ptt 1.0.0<!--<spring-: message code="version"/>-->
     </span>
-    <p>&copy; TechnoMind Team</p>
+    <p>&copy; Staples Pricing Team</p>
 </footer>

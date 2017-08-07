@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace pv.Models.model
 {
     [Table("PRODUCT_INGREDIENTS")]
+    [Serializable]
     public class ProductIngrendietsEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

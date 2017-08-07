@@ -1,1 +1,8 @@
-<div>Hola mundo</div>
+
+<div class="menu">
+    <div class="list-group">
+        <button type="button" *ngFor="let category of categories" class="list-group-item list-group-item-action ">
+           {{category.Name}}
+        </button>
+   </div>
+</div>

@@ -221,7 +221,7 @@ export class JwtService {
     private refreshToken() { //cambiar
         let loginUrl = this.apiHost + 'token';
         let claims = this.jwtHelper.decodeToken(this.getToken());
-        let body = { 'username': claims.unique_name, 'password': claims.iss, 'grant_type': 'password' };
+        let body = { 'username': claims.unique_name, 'password': claims[claims.unique_name], 'grant_type': 'password' };
 
         let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded'});
         let options = new RequestOptions({ headers: headers });

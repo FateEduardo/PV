@@ -6,7 +6,6 @@ import {JwtService} from "../../service/jwt.service";
 /**
  * Created by chaas003 on 10/7/16.
  */
-//const staplesLogo = require('../../asset/image/Staples_new_logo.jpg');
 
 @Component({
     template: require('../template/home.component.html'),
@@ -15,7 +14,8 @@ import {JwtService} from "../../service/jwt.service";
 export class HomeComponent implements OnInit {
    // staplesLogo = '/pv-app/' + staplesLogo;
     claims = null;
-
+    
+    imagePath = require("../../asset/img/logo.jpg");
     /**
      * Constructor
      *

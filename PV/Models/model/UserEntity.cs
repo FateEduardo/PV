@@ -1,9 +1,11 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace pv.Models.model
 {
     [Table("USER")]
+    [Serializable]
     public partial class UserEntity 
     {
        

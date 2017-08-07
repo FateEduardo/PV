@@ -8,6 +8,7 @@ namespace pv.Models.model
 {
   
     [Table("ROLE")]
+    [Serializable]
     public partial class UserRolEntity
     {
         [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

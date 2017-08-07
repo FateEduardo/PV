@@ -1,5 +1,6 @@
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Net.Http;
 
 namespace pv.Models.model
 {
@@ -10,6 +11,7 @@ namespace pv.Models.model
         public Context()
             : base("name=Context")
         {
+            
         }
 
         public virtual DbSet<UserEntity> USERs { get; set; }
@@ -23,7 +25,7 @@ namespace pv.Models.model
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
           
-            
+         
             modelBuilder.Entity<UserRolEntity>()
                 .HasMany(e => e.Users)
                 .WithRequired(e => e.UserRole)

@@ -34,8 +34,9 @@ namespace pv
             
             if (_authentificationComponent.IsAuthorized(user, context.Password))
             {
+               
                 var pass = context.Password;
-                log.Info("User login" + context.UserName);
+               
                 identity.AddClaim(new Claim(context.UserName, context.Password));
                 identity.AddClaim(new Claim(ClaimTypes.Role,user.UserRole.RolName));
                 identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
@@ -43,7 +44,7 @@ namespace pv
                 var props = new AuthenticationProperties(new Dictionary<string, string>
                 {
                     {
-                        "user", (context.UserName == null) ? string.Empty : context.UserName
+                        "audienceId", (context.UserName == null) ? string.Empty : context.UserName
                        
                     },
                     {

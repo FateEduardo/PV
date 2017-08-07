@@ -57,8 +57,6 @@ import {SimpleExpiry} from "@ng-idle/core";
         
         //angular-jwt configuration
         provideAuth({
-            headerName: "X-AUTH-TOKEN",
-            noTokenScheme: true,
             tokenGetter: (() => sessionStorage.getItem("id_token"))
         })    
         

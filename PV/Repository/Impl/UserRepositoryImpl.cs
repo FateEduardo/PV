@@ -8,10 +8,11 @@ namespace pv.Repository.Impl
 {
     public class UserRepositoryImpl : CRUDRepository<UserEntity>, IUserRepository
     {
-        private Context _context;
+        private readonly Context _context;
+        
         public UserRepositoryImpl(DbContext context) : base(context)
         {
-           
+            _context = new Context();
         }
 
     
@@ -24,10 +25,11 @@ namespace pv.Repository.Impl
 
         public UserEntity FindByUserName(string userName)
         {
-            _context = new Context();
+           
             var usuario = from u in _context.USERs
                 where u.UserName == userName
                 select u;
+            
             try
             {
                 return usuario.First<UserEntity>();
