@@ -5,13 +5,13 @@ using PV.Service;
 
 namespace pv.Controllers
 {
-    [Route("pv/category")]
+    
     public class ProductController: ApiController
     {
         private readonly ProductService _categoryService = new ProductService();
         
         [Authorize]
-        [Route("/{int:id}")]
+        [Route("pv/category/{id:int}")]
         [HttpGet]
         public IHttpActionResult  GetProductsByCategory(int id)
         {

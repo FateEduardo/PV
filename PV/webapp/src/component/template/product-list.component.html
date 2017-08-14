@@ -1,8 +1,10 @@
-
-<div class="menu">
+<div class="menu w-50 pt-5">
     <div class="list-group">
-        <button type="button" *ngFor="let category of categories" class="list-group-item list-group-item-action ">
-           {{category.Name}}
+        <button type="button" class="btn btn-info btn-lg btn-block">Categoria: {{actualCategory}}</button>
+        <button type="button" *ngFor="let category of categories"
+                class="list-group-item list-group-item-action" (click) = "getProducts(category)" >
+            <img [src]="dynamicPathSource(category)">
+            {{category.Name}}
         </button>
-   </div>
+    </div>
 </div>

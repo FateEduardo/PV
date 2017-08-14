@@ -44,7 +44,7 @@ import {SimpleExpiry} from "@ng-idle/core";
 
     providers: [
         //pv constants
-        { provide: 'API_HOST', useValue: app.environment === 'development' ? 'http://localhost:5001/pv/' : '/pv-app/' },
+        { provide: 'API_HOST', useValue: app.environment === 'development' ? 'http://localhost:55679/pv/' : '/pv-app/' },
         //Project Stages constants
 		
     //pv services

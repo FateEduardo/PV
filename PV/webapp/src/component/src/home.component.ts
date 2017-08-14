@@ -14,7 +14,7 @@ import {JwtService} from "../../service/jwt.service";
 export class HomeComponent implements OnInit {
    // staplesLogo = '/pv-app/' + staplesLogo;
     claims = null;
-    
+    public isCollapsed = false;
     imagePath = require("../../asset/img/logo.jpg");
     /**
      * Constructor

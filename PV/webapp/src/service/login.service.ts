@@ -24,7 +24,7 @@ export class LoginService {
     authenticateUser(user:any){
         let loginUrl = this.apiHost + 'token';
 
-        let body = { 'username': user.userName, 'password': user.password, 'grant_type': 'password' };
+        let body = { 'username': user.username, 'password': user.password, 'grant_type': 'password' };
 
         let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded'});
         let options = new RequestOptions({ headers: headers });

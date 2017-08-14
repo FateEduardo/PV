@@ -20,7 +20,7 @@ namespace PV
         
         public string SignatureAlgorithm
         {
-            get { return "http://www.w3.org/2001/04/xmldsig-more#hmac-sha256"; }
+            get { return "http://www.w3.org/2001/04/xmldsig-more#hmac-sha256"; }//oauth jwt(java web token)
         }
  
         public string DigestAlgorithm
