@@ -28,7 +28,7 @@ export class ApiService {
     }
     
     public getCategory() {
-        return this.authHttp.get(this.apiHost + 'category').map(res => res.json()).toPromise();
+        return this.authHttp.get(this.apiHost + 'scategory').map(res => res.json()).toPromise();
     }
 
     public getProduct(categoryId: number) {

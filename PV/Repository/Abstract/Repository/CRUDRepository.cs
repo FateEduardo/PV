@@ -17,7 +17,7 @@ namespace pv.Repository.Abstract.Repository
             this.context = context;
         }
 
-        public abstract int count();
+        public abstract int Count();
 
         public void Delete(Entity entity)
         {

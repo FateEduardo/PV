@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Web.Http.Results;
 using pv.Models.model;
 using pv.Repository.Impl;
+using PV.Exceptions;
 
 namespace PV.Service
 {
@@ -15,17 +18,10 @@ namespace PV.Service
             this._categoryRepositoryImpl = new CategoryRepositoryImpl(new Context());
         }
 
-        public List<CategoryEntity> getCategories()
+        public List<CategoryEntity> GetCategories()
         {
-            try
-            {
-                return _categoryRepositoryImpl.FindAll().ToList();
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-            
+           return _categoryRepositoryImpl.FindAll().ToList();
+       
         }
     }
 }

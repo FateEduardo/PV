@@ -38,10 +38,12 @@
     margin-top: 15%;
 }
 body { font-size: 1.2rem; font-family: Helvetica, Arial, sans-serif;
-    background-image:url("../img/back.jpg"); background-size:100% auto;}
+    background-color: #086A87}
 
 .navbar-light{
-    background-color: #FFBF00;
+    background-color: #0174DF;
+    outline-color:#071019;
+    outline-style:inset;
 }
 .navbar-brand{
     font-size: 80%;
@@ -58,4 +60,18 @@ body { font-size: 1.2rem; font-family: Helvetica, Arial, sans-serif;
     font-size: 130%;
     margin-bottom: 0px;
     padding-bottom: 0px;
+}
+
+.menu-category{
+  max-height: 500px;
+    overflow-y: scroll;
+}
+
+.product-name{
+    background-color:#FFBF00;
+}
+
+.my-card{
+    width: 33.33%;
+    height: 150px;
 }

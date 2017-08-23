@@ -10,6 +10,6 @@ namespace pv.Repository.Abstract.Repository
         void Save(Entity entity);
         void Delete(Entity entity);
         void Update(Entity entity);
-        int count();
+        int Count();
     }
 }

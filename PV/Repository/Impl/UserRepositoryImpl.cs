@@ -17,7 +17,7 @@ namespace pv.Repository.Impl
 
     
 
-        public override int count()
+        public override int Count()
         {
 
             return 0;

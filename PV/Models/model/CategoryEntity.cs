@@ -32,7 +32,14 @@ namespace pv.Models.model
         [Column("NAME", TypeName = "nvarchar")]
         public string Name { get; set; }
         
-     
+        
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("SCATEGORY_ID", TypeName = "bigint")]
+        public long ScategoryId { get; set; }
+        
+        [ForeignKey("SCATEGORY_ID")]
+        public SuperCategoryEntity SuperCategoryEntity  { get; set; }
+        
         public AuditoryEntity AuditoryEntity { get; set; }
     }
 }

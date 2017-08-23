@@ -1,10 +1,20 @@
-<div class="menu w-50 pt-5">
-    <div class="list-group">
-        <button type="button" class="btn btn-info btn-lg btn-block">Categoria: {{actualCategory}}</button>
-        <button type="button" *ngFor="let category of categories"
-                class="list-group-item list-group-item-action" (click) = "getProducts(category)" >
-            <img [src]="dynamicPathSource(category)">
-            {{category.Name}}
-        </button>
+<div class="menu w-50 pt-2">
+    <div class="col-auto m-2"><i class="fa fa-search" aria-hidden="true"></i></div>
+    <nav class="navbar navbar-light bg-faded sticky-top ">
+        <div class="row">
+            <div *ngFor="let category of categories" class="col-auto m-2">{{category.Name}}</div>
+
+        </div>
+    </nav>
+
+    <div class="card-deck mt-4 menu-category p-2">
+        <div class="card m-2 " *ngFor="let category of categories">
+            <img class="card-img-top" [src]="dynamicPathSource(category)" alt="Card image cap">
+            <div class="card-block product-name">
+                <h5 class="card-title text-center" >{{category.Name}}</h5>
+            </div>
+        </div>
+        
     </div>
+    
 </div>

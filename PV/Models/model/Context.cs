@@ -24,13 +24,10 @@ namespace pv.Models.model
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-          
-         
-            modelBuilder.Entity<UserRolEntity>()
-                .HasMany(e => e.Users)
-                .WithRequired(e => e.UserRole)
-                .HasForeignKey(e => e.Rol)
-                .WillCascadeOnDelete(false);
+
+
+            modelBuilder.Entity<UserEntity>()
+                .HasRequired<UserRolEntity>(u => u.UserRole);
             
             modelBuilder.Entity<ProductEntity>()
                 .HasMany(e => e.ProductIngrendiets)
@@ -48,6 +45,12 @@ namespace pv.Models.model
                 .HasMany(e => e.ProductsIngredients)
                 .WithRequired(e => e.Ingredient)
                 .HasForeignKey(e => e.IngredientsId)
+                .WillCascadeOnDelete(false);
+            
+            modelBuilder.Entity<SuperCategoryEntity>()
+                .HasMany(e => e.CategoryEntities)
+                .WithRequired(e => e.SuperCategoryEntity)
+                .HasForeignKey(e => e.ScategoryId)
                 .WillCascadeOnDelete(false);
         }
     }

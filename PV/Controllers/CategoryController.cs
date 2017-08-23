@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using pv.Models.model;
+using PV.Exceptions;
 using PV.Service;
 
 namespace pv.Controllers
@@ -9,13 +10,20 @@ namespace pv.Controllers
     {
         private readonly CategoryService _categoryService = new CategoryService();
         
+        private readonly ControllerLogger<CategoryController> _controllerLogger = 
+            new ControllerLogger<CategoryController>("CategoryController");
+        
         [Authorize]
         [Route("pv/category")]
         [HttpGet]
+        [ItemNotFoundExceptionFilter]
         public IHttpActionResult  GetCategories()
         {
-            List<CategoryEntity> categoryEntities = _categoryService.getCategories();
+         
+            _controllerLogger.LoggController("Get List of Categories");
+            List<CategoryEntity> categoryEntities = _categoryService.GetCategories();
             return Ok(categoryEntities);
+           
         }
     }
 }

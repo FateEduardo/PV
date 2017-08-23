@@ -1,38 +1,16 @@
-<header>
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <div class="container">
-            <a class="navbar-brand" >Bienvenido</a>
-            <ul class="nav navbar-nav mr-auto">
-                <li class="nav-item">
-                    <div class="navbar-brand" href="">
-                         <i class="fa fa-user-circle" aria-hidden="true"></i>
-                         <h6 class="navbar-brand mb-0">{{claims.unique_name}}</h6>
-                    </div>
-                </li>
-            </ul>
-            <div style="padding-right: 380px;">
-                <a class="navbar-brand" href="">
-                    <i class="fa fa-cutlery" aria-hidden="true"></i>
-                    <h1 class="navbar-brand mb-0 bigsize">Jugui Toño</h1>
-                </a> 
-            </div>
-           
-            <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <button type="button" class="btn btn-success btn-sm" style=""(click)="logout()">Salir
-                    <i class="fa fa-sign-out" aria-hidden="true"></i></button>
-                    
-                </li>
-            </ul>
+<div class="container m-0">
+    <div class="row mt-4">
+        <div class="col-sm-6"><h5>Men&uacute;</h5></div>
+        <div class="col-sm-6 text-right pr-0">
+           {{claims.unique_name}}
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
         </div>
-    </nav>
-    
-</header>
-
-        <div id="pv_content" class="container-fluid">
-            <div class="row">
-                <div class="col-sm">
-                    <router-outlet></router-outlet>
-                </div>
-            </div>
+    </div>
+</div>
+<div id="pv_content" class="container-fluid">
+     <div class="row">
+        <div class="col-sm">
+            <router-outlet></router-outlet>
         </div>
+     </div>
+</div>

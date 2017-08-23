@@ -25,7 +25,6 @@ export class ProductListComponent implements OnInit{
         this.apiService.getCategory().then(
             res => {
                 this.categories = res;
-               
             },
             err =>{
                 console.error("error while retrieving category list")
@@ -48,7 +47,7 @@ export class ProductListComponent implements OnInit{
         );
     }
     public dynamicPathSource(category: any) {
-        return require("../../asset/img/" + category.Name + ".jpg");
+        return require("../../asset/img/" + category.Name + ".png");
     }
     
 }   

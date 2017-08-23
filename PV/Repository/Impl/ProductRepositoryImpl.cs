@@ -16,7 +16,7 @@ namespace pv.Repository.Impl
 
         }
 
-        public override int count()
+        public override int Count()
         {
             throw new System.NotImplementedException();
         }
