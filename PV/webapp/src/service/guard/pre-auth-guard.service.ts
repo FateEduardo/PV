@@ -5,7 +5,8 @@ import {JwtService} from "../jwt.service";
 import {ApiService} from "../api.service";
 
 /**
- * Created by Fernando Martinez on 25/10/16.
+ * 
+ 
  * purpose of this guard is to redirect user to home page if it's pre-authenticated
  */
 @Injectable()
