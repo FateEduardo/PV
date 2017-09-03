@@ -3,7 +3,7 @@ import {LoginService} from "../../service/login.service";
 
 
 /**
- * Created by chaas003 on 10/3/16.
+ *
  */
 export class User{
     username: string;
