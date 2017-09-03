@@ -9,7 +9,7 @@ import {IdleExt} from "../util/idle-ext";
 //import {ModalAlertComponent} from "../component/util/modal-alert.component";
 
 /**
- * Created by Fernando Martinez on 26/10/16.
+ * 
  * service to handle all jwt operations
  */
 @Injectable()
