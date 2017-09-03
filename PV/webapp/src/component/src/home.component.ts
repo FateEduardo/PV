@@ -3,10 +3,7 @@ import {Component, OnInit} from "@angular/core";
 import {ApiService} from "../../service/api.service";
 import {JwtService} from "../../service/jwt.service";
 
-/**
- * Created by chaas003 on 10/7/16.
- */
-//const staplesLogo = require('../../asset/image/Staples_new_logo.jpg');
+
 
 @Component({
     template: require('../template/home.component.html'),
