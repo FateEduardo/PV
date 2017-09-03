@@ -8,7 +8,7 @@ import {User} from "../component/src/login.component";
 import {HomeComponent} from "../component/src/home.component";
 
 /**
- * Created by chaas003 on 10/5/16.
+ * 
  */
 @Injectable()
 export class LoginService {
