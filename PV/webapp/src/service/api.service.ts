@@ -4,7 +4,7 @@ import {Observable} from "rxjs/Observable";
 import {AuthHttp} from "angular2-jwt";
 
 /**
- * Created by Fernando Martinez on 25/10/16.
+ * 
  * consolidate api requests, preferably return Observables or promises
  */
 @Injectable()
