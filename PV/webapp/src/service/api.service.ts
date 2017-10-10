@@ -27,11 +27,11 @@ export class ApiService {
         return this.http.get(this.apiHost + 'token').map(res => res.text()).toPromise();
     }
     
-    public getCategory() {
+    public getSuperCategory() {
         return this.authHttp.get(this.apiHost + 'scategory').map(res => res.json()).toPromise();
     }
 
-    public getProduct(categoryId: number) {
+    public getCategory(categoryId: number) {
         return this.authHttp.get(this.apiHost + 'category/' + categoryId).map(res => res.json()).toPromise();
     }
 

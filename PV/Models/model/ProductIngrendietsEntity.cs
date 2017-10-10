@@ -5,25 +5,24 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace pv.Models.model
 {
     [Table("PRODUCT_INGREDIENTS")]
-    [Serializable]
-    public class ProductIngrendietsEntity
+    public partial class ProductIngrendietsEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public long Id { get; set; }
         
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         [Column("PRODUCT_ID", TypeName = "bigint")]
         public long ProductId { get; set; }
         
-        [ForeignKey("PRODUCT")] 
+        [ForeignKey("ProductId")] 
         public virtual ProductEntity Product { get; set; }
         
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         [Column("INGREDIENTS_ID", TypeName = "bigint")]
-        public long IngredientsId { get; set; }
+        public long IngredientId { get; set; }
         
-        [ForeignKey("PRODUCT")] 
+        [ForeignKey("IngredientId")] 
         public virtual IngredientsEntity Ingredient { get; set; }
     
     }

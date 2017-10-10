@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace pv.Models.model
 {
     [Table("USER")]
-    [Serializable]
     public partial class UserEntity 
     {
        
@@ -26,11 +25,11 @@ namespace pv.Models.model
         
         public AuditoryEntity AuditoryEntity { get; set; }
         
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         [Column("ROLE", TypeName = "bigint")]
         public long Rol { get; set; }
 
-        [ForeignKey("ROLE")] 
+        [ForeignKey("Rol")] 
         public virtual UserRolEntity UserRole { get; set; }
        
     }

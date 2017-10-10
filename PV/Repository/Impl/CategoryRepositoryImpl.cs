@@ -1,4 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using pv.Models.model;
 using pv.Repository.Abstract.Repository;
 
@@ -15,7 +18,16 @@ namespace pv.Repository.Impl
 
         public override int Count()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
+        }
+
+
+        public List<CategoryEntity> FindCatgoryBySCategory(int scategoryId)
+        {
+            var category = from c in _context.CATEGORY
+                where c.ScategoryId == scategoryId
+                select c;
+            return category.ToList();
         }
     }
 }

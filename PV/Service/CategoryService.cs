@@ -18,10 +18,11 @@ namespace PV.Service
             this._categoryRepositoryImpl = new CategoryRepositoryImpl(new Context());
         }
 
-        public List<CategoryEntity> GetCategories()
+        public List<CategoryEntity> GetCategories(int id)
         {
-           return _categoryRepositoryImpl.FindAll().ToList();
-       
+
+            return _categoryRepositoryImpl.FindCatgoryBySCategory(id);
+
         }
     }
 }

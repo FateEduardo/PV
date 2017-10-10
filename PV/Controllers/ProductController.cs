@@ -11,7 +11,7 @@ namespace pv.Controllers
         private readonly ProductService _categoryService = new ProductService();
         
         [Authorize]
-        [Route("pv/category/{id:int}")]
+        [Route("pv/product/{id:int}")]
         [HttpGet]
         public IHttpActionResult  GetProductsByCategory(int id)
         {

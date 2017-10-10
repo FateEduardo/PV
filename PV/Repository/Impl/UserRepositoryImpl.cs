@@ -3,12 +3,14 @@ using System.Data.Entity;
 using System.Linq;
 using pv.Models.model;
 using pv.Repository.Abstract.Repository;
+using PV.Exceptions;
 
 namespace pv.Repository.Impl
 {
     public class UserRepositoryImpl : CRUDRepository<UserEntity>, IUserRepository
     {
         private readonly Context _context;
+       
         
         public UserRepositoryImpl(DbContext context) : base(context)
         {
@@ -29,16 +31,7 @@ namespace pv.Repository.Impl
             var usuario = from u in _context.USERs
                 where u.UserName == userName
                 select u;
-            
-            try
-            {
                 return usuario.First<UserEntity>();
-            }
-            catch (Exception e)
-            {
-                return null;
-            }    
-           
         }
     }
 }

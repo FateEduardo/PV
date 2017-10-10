@@ -1,14 +1,22 @@
-﻿using System.Web.Http.ExceptionHandling;
+﻿using System.Net.Http;
+using System.Text;
+using System.Web.Http.ExceptionHandling;
+using log4net;
+using log4net.Repository.Hierarchy;
 
 namespace PV.Exceptions
 {
     public class LoggerException: ExceptionLogger
     {
+        private static ILog logger = 
+            LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        
         public override void Log(ExceptionLoggerContext context)
         {
-            var log = context.Exception.ToString();
-            //Do whatever logging you need to do here.
+           logger.Error(context.Exception.InnerException.Message);
            
         }
+        
+       
     }
 }

@@ -8,20 +8,9 @@ using System.Runtime.Serialization;
 namespace pv.Models.model
 {
     [Table ("CATEGORY")]
-    public class CategoryEntity
+    public partial class CategoryEntity
     {
-        
-        [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CategoryEntity()
-        {
-            Product = new HashSet<ProductEntity>();
-        }
-        
       
-        [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductEntity> Product { get; set; }
-        
-       
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ID", TypeName = "bigint")]
         public long Id { get; set; }
@@ -33,12 +22,12 @@ namespace pv.Models.model
         public string Name { get; set; }
         
         
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         [Column("SCATEGORY_ID", TypeName = "bigint")]
         public long ScategoryId { get; set; }
         
-        [ForeignKey("SCATEGORY_ID")]
-        public SuperCategoryEntity SuperCategoryEntity  { get; set; }
+        [ForeignKey("ScategoryId")]
+        public virtual SuperCategoryEntity SuperCategoryEntity  { get; set; }
         
         public AuditoryEntity AuditoryEntity { get; set; }
     }

@@ -14,14 +14,14 @@ namespace pv.Controllers
             new ControllerLogger<CategoryController>("CategoryController");
         
         [Authorize]
-        [Route("pv/category")]
+        [Route("pv/category/{id:int}")]
         [HttpGet]
         [ItemNotFoundExceptionFilter]
-        public IHttpActionResult  GetCategories()
+        public IHttpActionResult  GetCategories(int id)
         {
          
             _controllerLogger.LoggController("Get List of Categories");
-            List<CategoryEntity> categoryEntities = _categoryService.GetCategories();
+            List<CategoryEntity> categoryEntities = _categoryService.GetCategories(id);
             return Ok(categoryEntities);
            
         }

@@ -27,6 +27,7 @@
     </NuGetPackageImportStamp>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -185,7 +186,12 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SCategoryController.cs" />
     <Compile Include="CustomJwtFormat.cs" />
+    <Compile Include="Exceptions\ControllerLogger.cs" />
+    <Compile Include="Exceptions\ItemNotFoundExceptionFilterAttribute.cs" />
+    <Compile Include="Exceptions\LoggerException.cs" />
+    <Compile Include="Exceptions\PVExceptions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -195,6 +201,7 @@
     <Compile Include="Models\model\IngredientsEntity.cs" />
     <Compile Include="Models\model\ProductEntity.cs" />
     <Compile Include="Models\model\ProductIngrendietsEntity.cs" />
+    <Compile Include="Models\model\SuperCategoryEntity.cs" />
     <Compile Include="Models\model\UserEntity.cs" />
     <Compile Include="Models\model\UserRolEntity.cs" />
     <Compile Include="MyAuthorizationServerProvider.cs" />
@@ -205,12 +212,15 @@
     <Compile Include="Repository\ICategoryRepository.cs" />
     <Compile Include="Repository\Impl\CategoryRepositoryImpl.cs" />
     <Compile Include="Repository\Impl\ProductRepositoryImpl.cs" />
+    <Compile Include="Repository\Impl\SCategoryRepositoryImpl.cs" />
     <Compile Include="Repository\Impl\UserRepositoryImpl.cs" />
     <Compile Include="Repository\IProductRepository.cs" />
+    <Compile Include="Repository\ISCategoryRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="Service\CategoryService.cs" />
     <Compile Include="Service\Component\AuthentificationComponent.cs" />
     <Compile Include="Service\ProductService.cs" />
+    <Compile Include="Service\SCategoryService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,9 +243,10 @@
     <Content Include="webapp\generated\index.html" />
     <Content Include="webapp\src\asset\css\pv.css" />
     <Content Include="webapp\src\asset\img\back.jpg" />
-    <Content Include="webapp\src\asset\img\LICUADOS.jpg" />
+    <Content Include="webapp\src\asset\img\LICUADOS.png" />
     <Content Include="webapp\src\asset\img\logo.jpg" />
     <Content Include="webapp\src\asset\img\SANDWICH.jpg" />
+    <Content Include="webapp\src\asset\img\SANDWICH.png" />
     <Content Include="webapp\src\component\src\producto-list.component.ts" />
     <Content Include="webapp\src\component\template\app.component.html" />
     <Content Include="webapp\src\component\template\home.component.html" />

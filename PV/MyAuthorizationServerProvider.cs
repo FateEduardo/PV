@@ -18,7 +18,7 @@ namespace pv
 
         private readonly UserRepositoryImpl _userRepository = new UserRepositoryImpl(new Context());
         
-        private static readonly ILog log = LogManager.GetLogger(typeof(MyAuthorizationServerProvider));
+     
             
         
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
@@ -29,7 +29,7 @@ namespace pv
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-            UserEntity user = _userRepository.FindByUserName(context.UserName);
+            UserEntity user = _userRepository.FindByUserName(context.UserName); //tirar excepcion si no se encontro
          
             
             if (_authentificationComponent.IsAuthorized(user, context.Password))

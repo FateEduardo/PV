@@ -27,31 +27,16 @@ namespace pv.Models.model
 
 
             modelBuilder.Entity<UserEntity>()
-                .HasRequired<UserRolEntity>(u => u.UserRole);
-            
-            modelBuilder.Entity<ProductEntity>()
-                .HasMany(e => e.ProductIngrendiets)
-                .WithRequired(e => e.Product)
-                .HasForeignKey(e => e.ProductId)
-                .WillCascadeOnDelete(false);
-            
+                .HasRequired(u => u.UserRole).WithMany();
             modelBuilder.Entity<CategoryEntity>()
-                .HasMany(e => e.Product)
-                .WithRequired(e => e.Category)
-                .HasForeignKey(e => e.CategoryId)
-                .WillCascadeOnDelete(false);
-            
-            modelBuilder.Entity<IngredientsEntity>()
-                .HasMany(e => e.ProductsIngredients)
-                .WithRequired(e => e.Ingredient)
-                .HasForeignKey(e => e.IngredientsId)
-                .WillCascadeOnDelete(false);
-            
-            modelBuilder.Entity<SuperCategoryEntity>()
-                .HasMany(e => e.CategoryEntities)
-                .WithRequired(e => e.SuperCategoryEntity)
-                .HasForeignKey(e => e.ScategoryId)
-                .WillCascadeOnDelete(false);
+                .HasRequired(c => c.SuperCategoryEntity).WithMany();
+            modelBuilder.Entity<ProductIngrendietsEntity>()
+                .HasRequired(pi => pi.Ingredient).WithMany();
+            modelBuilder.Entity<ProductIngrendietsEntity>()
+                .HasRequired(pi => pi.Product).WithMany();
+            modelBuilder.Entity<ProductEntity>()
+                .HasRequired(p => p.Category).WithMany();
+
         }
     }
 }
