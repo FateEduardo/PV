@@ -1,36 +1,52 @@
 ﻿import {Component, OnInit,Input} from "@angular/core";
 import Apiservice = require("../../service/api.service");
 import ApiService = Apiservice.ApiService;
+import Alertservice = require("../../service/alert.service");
+import AlertService = Alertservice.AlertService;
+import Windowloadingmodel = require("../../model/window-loading.model");
+import WindowLoadingModel = Windowloadingmodel.WindowLoadingModel;
 
 @Component({
    
-    template: require('../template/product-list.component.html'),
+    template: require('../template/product-list.component.html')
 })
 export class ProductListComponent implements OnInit{
+    
     public categories :any = [];
     public scategories :any = [];
     public products :any = [];
     private showCategory :boolean = false;
     private actualCategory: string = "";
     public categoryId: number;
+    public loader = new WindowLoadingModel();
     
-    constructor(private apiService: ApiService){
+    constructor(private apiService: ApiService, private alertService : AlertService){
         
     }
     
+    
     public ngOnInit(): void {
         this.getSuperCategory();
+      
     }
-    
+
+
+    /**
+     * 
+     * @param scategoryId
+     */
     public getCategory(scategoryId:  number) {
-        console.log(scategoryId);
+        this.loader.setLoading(true);
+        
         this.apiService.getCategory(scategoryId).then(
-            res => {
-                this.categories = res;
+            categories => {
+                this.categories = categories;
+                this.loader.setLoading(false);
             },
             err =>{
-                console.error("error while retrieving category list")
-            }
+                this.alertService.errorAlert("Error mientras se obtenian las categorias");
+                this.loader.setLoading(false);
+            }   
         );
 
     }
@@ -39,24 +55,26 @@ export class ProductListComponent implements OnInit{
      * Get the super category
      */
     public getSuperCategory() {
+        this.loader.setLoading(true);
         this.apiService.getSuperCategory().then(
-            res => {
-                this.scategories = res;
-                console.log(this.scategories);
+            scategories => {
+                this.scategories = scategories;
+                this.getCategory(this.scategories[0].Id);
+                this.loader.setLoading(false);
             },
             err =>{
-                console.error("error while retrieving category list")
+                this.alertService.errorAlert("Error mientras se obtenian las áreas");
+                this.loader.setLoading(false);
             }
         );
 
     }
     
     public getProducts(category: any) {
-       
-      /*  this.apiService.getProduct(category.Id).then(
-            res => {
-                this.actualCategory = category.Name;
-                this.products = res;
+        this.actualCategory = category.Name;
+      /*  this.apiService.getProduct(category).then(
+            product => {
+                this.products = product;
                 
             },
             err =>{

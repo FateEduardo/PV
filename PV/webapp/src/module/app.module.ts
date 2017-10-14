@@ -18,6 +18,10 @@ import {IdleExt} from "../util/idle-ext";
 import {ApiService} from "../service/api.service";
 import {CommonModule} from "@angular/common";
 import {SimpleExpiry} from "@ng-idle/core";
+import {ModalAlertComponent} from "../component/util/src/modal-alert.component";
+import {AlertService} from "../service/alert.service";
+import {LoaderComponent} from "../component/util/src/app-loader.component";
+
 
 @NgModule({
     imports: [
@@ -35,10 +39,12 @@ import {SimpleExpiry} from "@ng-idle/core";
         AppComponent,
         LoginComponent,
         HomeComponent,
-        ProductListComponent
+        ProductListComponent,
+        ModalAlertComponent,
+        LoaderComponent
     ],
     entryComponents: [
-     
+        ModalAlertComponent
     ],
     bootstrap: [AppComponent],
 
@@ -48,7 +54,7 @@ import {SimpleExpiry} from "@ng-idle/core";
         //Project Stages constants
 		
     //pv services
-        ApiService, JwtHelper, JwtService,
+        ApiService, JwtHelper, JwtService,AlertService,
     //pv guards
         PreAuthGuard, JwtGuard,
     //ng2-idle dependencies

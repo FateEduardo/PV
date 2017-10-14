@@ -1,25 +1,40 @@
-<div class="menu w-50 pt-2">
-    <div class="col-auto m-2">
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </span>
-           <input type="text" class="form-control" placeholder="Search for...">
-        </div>
-    </div>
-   <div class="row m-1">
-       <div class="col-auto" *ngFor="let scategorie of scategories"><button class="btn btn-primary" (click)="getCategory(scategorie.Id)">{{scategorie.Name}}</button></div>
-   </div>
-
-    <div class="card-deck mt-4 menu-category p-2">
-        <div class="card m-2 " *ngFor="let category of categories">
-            <img class="card-img-top" [src]="dynamicPathSource(category)" alt="Card image cap">
-            <div class="card-block product-name">
-                <h5 class="card-title text-center" >{{category.Name}}</h5>
+<section>
+    <div class="menu w-50 pt-2">
+        <div class="col-auto m-2">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </span>
+               <input type="text" class="form-control" placeholder="Search for...">
             </div>
         </div>
-        
-    </div>
+       <div class="row m-1">
+           <div class="col-auto" *ngFor="let scategorie of scategories">
+               <button class="btn btn-primary" (click)="getCategory(scategorie.Id)">
+               {{scategorie.Name}}
+              </button>
+           </div>
+       </div>
     
+        <div class="card-deck mt-4 menu-category p-2">
+            <div class="card m-2 card-width" *ngFor="let category of categories">
+                <img class="card-img-top" [src]="dynamicPathSource(category)" alt="Card image cap">
+                <div class="card-block product-name py-2">
+                    <button type="button" class="btn btn-outline-warning" (click)= "">
+                        <h5 class="card-title text-center" >{{category.Name}}</h5>
+                    </button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="message">
+    <div class="row">
+        <div class="col" *ngFor="let alert of alertService.alerts">
+            <ngb-alert [type]="alert.type" (click)="alertService.clearAlerts()">
+                <span [class]="alert.icon"></span>&nbsp;&nbsp;{{alert.msg}} </ngb-alert>
+        </div>
+    </div>
 </div>
- 
+<app-loader [loading]="loader.loading"></app-loader>

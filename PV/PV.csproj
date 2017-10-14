@@ -243,15 +243,22 @@
     <Content Include="webapp\generated\index.html" />
     <Content Include="webapp\src\asset\css\pv.css" />
     <Content Include="webapp\src\asset\img\back.jpg" />
-    <Content Include="webapp\src\asset\img\LICUADOS.png" />
+    <Content Include="webapp\src\asset\img\Jugo.png" />
+    <Content Include="webapp\src\asset\img\Licuado.png" />
     <Content Include="webapp\src\asset\img\logo.jpg" />
-    <Content Include="webapp\src\asset\img\SANDWICH.jpg" />
-    <Content Include="webapp\src\asset\img\SANDWICH.png" />
+    <Content Include="webapp\src\asset\img\Sandwich.png" />
+    <Content Include="webapp\src\asset\img\Wrap Roll.png" />
     <Content Include="webapp\src\component\src\producto-list.component.ts" />
     <Content Include="webapp\src\component\template\app.component.html" />
     <Content Include="webapp\src\component\template\home.component.html" />
     <Content Include="webapp\src\component\template\product-list.component.html" />
+    <Content Include="webapp\src\component\util\src\app-loader.component.ts" />
+    <Content Include="webapp\src\component\util\src\modal-alert.component.ts" />
+    <Content Include="webapp\src\component\util\template\loader.component.html" />
+    <Content Include="webapp\src\component\util\template\modal-alert.component.html" />
     <Content Include="webapp\src\index.html" />
+    <Content Include="webapp\src\model\window-loading.model.ts" />
+    <Content Include="webapp\src\service\alert.service.ts" />
     <Content Include="webapp\src\service\guard\jwt-guard.service.ts" />
     <Content Include="webapp\webpack.config.js" />
   </ItemGroup>

@@ -77,3 +77,51 @@ body { font-size: 1.2rem; font-family: Helvetica, Arial, sans-serif;
 }
 
 
+/**
+* ALERTS
+**/
+#message {
+    position: fixed;
+    width: 500px;
+    top: 2px;
+    left: 50%;
+    margin-left: -250px; /* Negative half of width. */
+}
+#loader {
+    position: fixed !important;
+    width: 120px;
+    top: 2px;
+    left: 50%;
+    margin-left: -60px; /* Negative half of width. */
+}
+#inner-message {
+    margin: 0 auto;
+}
+
+input.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+input.custom-file-input::before {
+    display: inline-block;
+    content: 'Select File';
+    background: #5CB85C;
+    color: #FFF;
+    border: 1px solid #5CB85C;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+input.custom-file-input:hover::before {
+    background-color: #449D44;
+    border-color: #419641;
+}
+
+.alert{
+    font-size: 80%;
+    padding: 8px;
+}
+
+.card-width { max-width: 45%}
