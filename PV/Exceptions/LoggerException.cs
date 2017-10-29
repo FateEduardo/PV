@@ -14,7 +14,7 @@ namespace PV.Exceptions
         public override void Log(ExceptionLoggerContext context)
         {
            logger.Error(context.Exception.InnerException.Message);
-           
+          
         }
         
        

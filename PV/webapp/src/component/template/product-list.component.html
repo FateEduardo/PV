@@ -1,5 +1,7 @@
 <section>
     <div class="menu w-50 pt-2">
+
+        
         <div class="col-auto m-2">
             <div class="input-group">
               <span class="input-group-btn">
@@ -8,6 +10,7 @@
                <input type="text" class="form-control" placeholder="Search for...">
             </div>
         </div>
+        
        <div class="row m-1">
            <div class="col-auto" *ngFor="let scategorie of scategories">
                <button class="btn btn-primary" (click)="getCategory(scategorie.Id)">
@@ -15,16 +18,22 @@
               </button>
            </div>
        </div>
-    
+
+        
         <div class="card-deck mt-4 menu-category p-2">
-            <div class="card m-2 card-width" *ngFor="let category of categories">
+            <div class="card m-2 card-width" *ngFor="let category of categories" [hidden]="!showCategory">
                 <img class="card-img-top" [src]="dynamicPathSource(category)" alt="Card image cap">
+                <button type="button" class=" btn btn-default product-name" (click)= "getProducts(category)">
                 <div class="card-block product-name py-2">
-                    <button type="button" class="btn btn-outline-warning" (click)= "">
                         <h5 class="card-title text-center" >{{category.Name}}</h5>
-                    </button>
-                   
                 </div>
+                </button>
+            </div>
+            <div class="card m-2 card-width" *ngFor="let product of products" [hidden]="showCategory">
+                <img class="card-img-top" [src]="dynamicPathSource(category)" alt="Card image cap">
+                    <div class="card-block product-name py-2">
+                        <h5 class="card-title text-center" >{{category.Name}}</h5>
+                    </div>
             </div>
         </div>
     </div>

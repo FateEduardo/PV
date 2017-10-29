@@ -11,6 +11,7 @@ import {Injectable} from '@angular/core';
 export class WindowLoadingModel {
    private loading: boolean = false;
    
+   
    public getLoading() : boolean {
        return this.loading
    }

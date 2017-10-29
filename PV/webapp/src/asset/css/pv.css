@@ -125,3 +125,10 @@ input.custom-file-input:hover::before {
 }
 
 .card-width { max-width: 45%}
+
+.breadcrumb{
+    margin-top: 10px;
+    margin-left: 4px;
+   font-size: 70%;
+    
+}

@@ -1,13 +1,9 @@
 ﻿import {Component, OnInit,Input} from "@angular/core";
-import Apiservice = require("../../service/api.service");
-import ApiService = Apiservice.ApiService;
-import Alertservice = require("../../service/alert.service");
-import AlertService = Alertservice.AlertService;
-import Windowloadingmodel = require("../../model/window-loading.model");
-import WindowLoadingModel = Windowloadingmodel.WindowLoadingModel;
+import {ApiService} from "../../service/api.service";
+import {AlertService}  from"../../service/alert.service";
+import {WindowLoadingModel} from "../../model/window-loading.model";
 
 @Component({
-   
     template: require('../template/product-list.component.html')
 })
 export class ProductListComponent implements OnInit{
@@ -15,7 +11,7 @@ export class ProductListComponent implements OnInit{
     public categories :any = [];
     public scategories :any = [];
     public products :any = [];
-    private showCategory :boolean = false;
+    private showCategory :boolean = true;
     private actualCategory: string = "";
     public categoryId: number;
     public loader = new WindowLoadingModel();
@@ -72,20 +68,20 @@ export class ProductListComponent implements OnInit{
     
     public getProducts(category: any) {
         this.actualCategory = category.Name;
-      /*  this.apiService.getProduct(category).then(
-            product => {
-                this.products = product;
+       this.showCategory = false;
+        this.apiService.getProduct(category.Id).then(
+            products => {
+                this.products = products;
                 
             },
             err =>{
                 console.error("error while retrieving category list")
             }
-        );*/
+        );
     }
     
     
     public dynamicPathSource(category: any) {
         return require("../../asset/img/" + category.Name + ".png");
-    }
-    
+    }    
 }   

@@ -21,6 +21,7 @@ import {SimpleExpiry} from "@ng-idle/core";
 import {ModalAlertComponent} from "../component/util/src/modal-alert.component";
 import {AlertService} from "../service/alert.service";
 import {LoaderComponent} from "../component/util/src/app-loader.component";
+import {BreadCrumb} from "../component/util/src/breadcrumb.component";
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {LoaderComponent} from "../component/util/src/app-loader.component";
         HomeComponent,
         ProductListComponent,
         ModalAlertComponent,
-        LoaderComponent
+        LoaderComponent,
+        BreadCrumb,
     ],
     entryComponents: [
         ModalAlertComponent

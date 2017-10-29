@@ -253,7 +253,9 @@
     <Content Include="webapp\src\component\template\home.component.html" />
     <Content Include="webapp\src\component\template\product-list.component.html" />
     <Content Include="webapp\src\component\util\src\app-loader.component.ts" />
+    <Content Include="webapp\src\component\util\src\breadcrumb.component.ts" />
     <Content Include="webapp\src\component\util\src\modal-alert.component.ts" />
+    <Content Include="webapp\src\component\util\template\breadcrumb.component.html" />
     <Content Include="webapp\src\component\util\template\loader.component.html" />
     <Content Include="webapp\src\component\util\template\modal-alert.component.html" />
     <Content Include="webapp\src\index.html" />

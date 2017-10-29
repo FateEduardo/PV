@@ -1,0 +1,6 @@
+<nav class="breadcrumb">
+    <a class="breadcrumb-item" 
+       [ngClass]="{'breadcrumb-item': selecClass(tab.number), 
+       'breadcrumb-item active': selecClass(tab.number)}"
+       *ngFor="let tab of tabs" >{{tab.name}}</a>
+</nav>
