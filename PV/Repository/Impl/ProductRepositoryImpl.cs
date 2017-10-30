@@ -29,5 +29,13 @@ namespace pv.Repository.Impl
             return products.ToList();
 
         }
+
+        public List<ProductEntity> FindProductByName(string name)
+        {
+            var products = from p in this._context.PRODUCTS
+                where p.Name.Contains(name) select  p;
+
+            return products.ToList();
+        }
     }
 }

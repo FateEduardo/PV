@@ -2,6 +2,7 @@
 import {ApiService} from "../../service/api.service";
 import {AlertService}  from"../../service/alert.service";
 import {WindowLoadingModel} from "../../model/window-loading.model";
+import {Product} from "../../model/product.model";
 
 @Component({
     template: require('../template/product-list.component.html')
@@ -15,6 +16,7 @@ export class ProductListComponent implements OnInit{
     private actualCategory: string = "";
     public categoryId: number;
     public loader = new WindowLoadingModel();
+    public productDTO = new Product();
     
     constructor(private apiService: ApiService, private alertService : AlertService){
         
@@ -33,7 +35,7 @@ export class ProductListComponent implements OnInit{
      */
     public getCategory(scategoryId:  number) {
         this.loader.setLoading(true);
-        
+        this.showCategory = true;
         this.apiService.getCategory(scategoryId).then(
             categories => {
                 this.categories = categories;
@@ -67,7 +69,7 @@ export class ProductListComponent implements OnInit{
     }
     
     public getProducts(category: any) {
-        this.actualCategory = category.Name;
+       this.actualCategory = category.Name;
        this.showCategory = false;
         this.apiService.getProduct(category.Id).then(
             products => {
@@ -80,7 +82,18 @@ export class ProductListComponent implements OnInit{
         );
     }
     
-    
+    public findProductByName() {
+        this.showCategory = false;
+        this.apiService.findProduct(this.productDTO).then(
+            products => {
+                this.products = products;
+
+            },
+            err =>{
+                console.error("error while retrieving category list")
+            }
+        );
+    }
     public dynamicPathSource(category: any) {
         return require("../../asset/img/" + category.Name + ".png");
     }    

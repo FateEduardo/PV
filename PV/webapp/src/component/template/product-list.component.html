@@ -5,9 +5,11 @@
         <div class="col-auto m-2">
             <div class="input-group">
               <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <button class="btn btn-secondary" type="button" (click)="findProductByName()">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
               </span>
-               <input type="text" class="form-control" placeholder="Search for...">
+               <input type="text"  [(ngModel)]="productDTO.name" class="form-control" placeholder="Buscar Producto" >
             </div>
         </div>
         
@@ -30,9 +32,9 @@
                 </button>
             </div>
             <div class="card m-2 card-width" *ngFor="let product of products" [hidden]="showCategory">
-                <img class="card-img-top" [src]="dynamicPathSource(category)" alt="Card image cap">
                     <div class="card-block product-name py-2">
-                        <h5 class="card-title text-center" >{{category.Name}}</h5>
+                        <h5 class="card-title text-center" >{{product.Name}}</h5>
+                        <button><i class="fa fa-plus-square" aria-hidden="true"></i></button>
                     </div>
             </div>
         </div>

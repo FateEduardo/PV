@@ -17,5 +17,10 @@ namespace PV.Service
         {
             return this._productRepositoryImpl.GetByCategory(id);
         }
+        
+        public List<ProductEntity> FindProductByName(string name)
+        {
+            return this._productRepositoryImpl.FindProductByName(name);
+        }
     }
 }

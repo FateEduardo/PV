@@ -195,6 +195,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DTO\ProductDTO.cs" />
     <Compile Include="Models\model\AuditoryEntity.cs" />
     <Compile Include="Models\model\CategoryEntity.cs" />
     <Compile Include="Models\model\Context.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="Repository\IProductRepository.cs" />
     <Compile Include="Repository\ISCategoryRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
+    <Compile Include="Repository\Predicate\PredicateBuilder.cs" />
     <Compile Include="Service\CategoryService.cs" />
     <Compile Include="Service\Component\AuthentificationComponent.cs" />
     <Compile Include="Service\ProductService.cs" />
@@ -259,6 +261,7 @@
     <Content Include="webapp\src\component\util\template\loader.component.html" />
     <Content Include="webapp\src\component\util\template\modal-alert.component.html" />
     <Content Include="webapp\src\index.html" />
+    <Content Include="webapp\src\model\product.model.ts" />
     <Content Include="webapp\src\model\window-loading.model.ts" />
     <Content Include="webapp\src\service\alert.service.ts" />
     <Content Include="webapp\src\service\guard\jwt-guard.service.ts" />

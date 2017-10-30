@@ -39,4 +39,8 @@ export class ApiService {
         return this.authHttp.get(this.apiHost + 'product/' + categoryId).map(res => res.json()).toPromise();
     }
 
+    public findProduct(product: any) {
+        return this.authHttp.post(this.apiHost + 'product',product).map(res => res.json()).toPromise();
+    }
+
 }

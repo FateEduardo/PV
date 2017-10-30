@@ -6,5 +6,7 @@ namespace pv.Repository
     public interface IProductRepository
     {
         List<ProductEntity> GetByCategory(int id);
+        
+        List<ProductEntity> FindProductByName(string name);
     }
 }
