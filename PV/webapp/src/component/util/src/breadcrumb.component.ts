@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
 /**
  * Created by ADMIN on 14/10/2017.
  */
@@ -8,16 +8,16 @@ import {Component} from "@angular/core";
     template: require("../template/breadcrumb.component.html")
 })
 export class BreadCrumb {
-
-    private tabs = [];
+    
+    @Input() public tabs: any = [];
 
     constructor(){}
     
-    public addTab(tab :string){
-        this.tabs.push({name:tab, number: this.tabs.length+1});
+    public selecClass(tabNumber :number) : boolean {
+        console.log(tabNumber == this.tabs.length-1);
+       return  (tabNumber == this.tabs.length-1);
     }
     
-    public selecClass(tabNumber :number) : boolean {
-       return  (tabNumber == this.tabs.length);
-    }
 }
+
+
